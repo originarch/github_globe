@@ -1,117 +1,79 @@
-<!DOCTYPE HTML>
-<html lang="en">
-    <head>
-        <title>WebGL Globe</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="/github_globe/static/css/reset.css">
-        <link rel="stylesheet" href="/github_globe/static/css/defaults.css">
-        <link rel="stylesheet" href="/github_globe/static/css/globe.css">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html>
 
-    <div id="container"></div>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Github globe : A visualization of GitHub users throughout the globe" />
 
-    <div id="info">
-        <a href="http://www.chromeexperiments.com/globe">WebGL Globe</a> <span class="bull">&bull;</span>
-        Created by <a href="http://github.com/aaasen/">Lane Aasen</a> <span class="bull">&bull;</span>
-        Data from <a href="http://www.githubarchive.org/">GitHub Archive</a>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Github globe</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/originarch/github_globe">View on GitHub</a>
+
+          <h1 id="project_title">Github globe</h1>
+          <h2 id="project_tagline">A visualization of GitHub users throughout the globe</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/originarch/github_globe/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/originarch/github_globe/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
     </div>
 
-    <div id="currentInfo">
-        <span id="year1990" class="year"></span>
-        <span id="year1995" class="year"></span>
-        <span id="year2000" class="year"></span>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
+
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
     </div>
 
-    <div id="title">
-        <h1 id="title">
-            Github Users Worldwide
-        </h1>
-
-        <p id="explanation">
-            In this visualization, each line represents a location.
-            The larger the line, the more GitHub users there are at that location.
-        </p>
-
-        <p id="explanation">
-            For an easy challenge, spot San Francisco!
-            (hint: it's the big orange line)
-            Then, use your epic geography skills to
-            locate your current city!
-        </p>
-
-        <p id="explanation">
-            Check out the <a href="http://github.com/aaasen/github_globe">GitHub repo</a> for info about how this was made,
-            and how to get the data to make something even cooler!
-        </p>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Github globe maintained by <a href="https://github.com/originarch">originarch</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
     </div>
 
-    <a href="https://github.com/aaasen/github_globe"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+    
 
-    <script type="text/javascript" src="/github_globe/static/js/Three/ThreeWebGL.js"></script>
-    <script type="text/javascript" src="/github_globe/static/js/Three/ThreeExtras.js"></script>
-    <script type="text/javascript" src="/github_globe/static/js/Three/RequestAnimationFrame.js"></script>
-    <script type="text/javascript" src="/github_globe/static/js/Three/Detector.js"></script>
-    <script type="text/javascript" src="/github_globe/static/js/Tween.js"></script>
-    <script type="text/javascript" src="/github_globe/static/js/globe.js"></script>
-
-    <script type="text/javascript">
-
-        if(!Detector.webgl){
-            Detector.addGetWebGLMessage();
-        } else {
-
-            var years = ['1990','1995','2000'];
-            var container = document.getElementById('container');
-            var globe = new DAT.Globe(container);
-            console.log(globe);
-            var i, tweens = [];
-
-            var settime = function(globe, t) {
-                return function() {
-                    new TWEEN.Tween(globe).to({time: t/years.length},500).easing(TWEEN.Easing.Cubic.EaseOut).start();
-                    var y = document.getElementById('year'+years[t]);
-                    if (y.getAttribute('class') === 'year active') {
-                        return;
-                    }
-                    var yy = document.getElementsByClassName('year');
-                    for(i=0; i<yy.length; i++) {
-                        yy[i].setAttribute('class','year');
-                    }
-                    y.setAttribute('class', 'year active');
-                };
-            };
-
-            for(var i = 0; i<years.length; i++) {
-                var y = document.getElementById('year'+years[i]);
-                y.addEventListener('mouseover', settime(globe,i), false);
-            }
-
-            var xhr;
-            TWEEN.start();
-
-
-            xhr = new XMLHttpRequest();
-            xhr.open('GET', '/github_globe/data/user_locations.json', true);
-            xhr.onreadystatechange = function(e) {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        var data = JSON.parse(xhr.responseText);
-                        window.data = data;
-                        for (i=0;i<data.length;i++) {
-                            globe.addData(data[i][1], {format: 'magnitude', name: data[i][0], animated: true});
-                        }
-                        globe.createPoints();
-                        settime(globe,0)();
-                        globe.animate();
-                    }
-                }
-            };
-            xhr.send(null);
-        }
-
-    </script>
-
-    </body>
-
+  </body>
 </html>
